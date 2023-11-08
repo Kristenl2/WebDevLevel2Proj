@@ -1,4 +1,4 @@
-.container > div {
+.container > div{
     align-items: center;
     border: solid rgb(59, 52, 52) thin;
     color: white;
@@ -6,11 +6,14 @@
     font-size: 3em;
     justify-content: center;
 }
-html,
-body {
+html, body {
     margin: 15px;
 }
 
+.img{
+    width: 50 px;
+    height: 50 px;
+  }
 
 .container > div:nth-child(1n) {
     background-color: #05ff8a;

@@ -7,26 +7,61 @@
     <title>Document</title>
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="style.css">
-    
+    <style> 
+    </style>
+    <script>
+        let num = 0;
+        let score = 0;
+        let pickable=true
+        let count = 0;
+        let justPicked1 = "";
+        let justPicked2 = "";
+        function initialize(){
+            count = 0;
+        }
+        function pressed(image,card){
+            if(pickable){
+                count++;
+                score++;
+                let pic = document.getElementById(card);
+                pic.src=`${image}`;
+                if (justPicked1 == ""){
+                        justPicked1 = "card";
+                    }else{
+                        justPicked2 = "card";
+                    }
+                if(count==2){
+                    count = 0;
+                    justPicked1="";
+                    justPicked2="";
+                    let x = document.getElementById(justPicked1);
+                    x.src = "back.jpg";
+                }else{
+                    
+                }
+            }
+            
+        }
+    </script>
 </head>
-<body>
-    <div class="container">
-        <div id = card1> image 1 </div>
-        <div id = card2> image 2 </div>
-        <div id = card3> image 3 </div>
-        <div id = card4> image 4 </div>
-        <div id = card5> image 5 </div>
-        <div id = card6> image 6 </div>
-        <div id = card7> image 7 </div>
-        <div id = card8> image 8 </div>
-        <div id = card9> image 9 </div>
-        <div id = card10> image 10 </div>
-        <div id = card11> image 11 </div>
-        <div id = card12> image 12 </div>
-        <div id = card13> image 13 </div>
-        <div id = card14> image 14 </div>
-        <div id = card15> image 15 </div>
-        <div id = card16 > image 16 </div>
+<body onload="initialize();">
+    <span class="container">
+        <img class="card" onclick="pressed('IMG_0191.JPG','pic1');" id = "pic1" src="back.jpg" width= "90" height= "90"></div>
+        <img class="card" onclick="pressed('IMG_8540.JPG','pic2');" id = "pic2" src="back.jpg" width= "90" height= "90"> </div>
+        <img class="card" onclick="pressed('IMG_1502.JPG','pic3');" id = "pic3" src="back.jpg" width= "90" height= "90"> </div>
+        <img class="card" onclick="pressed('IMG_2012.JPG','pic4');" id = "pic4" src="back.jpg" width= "90" height= "90"> </div>
+        <img class="card" onclick="pressed('IMG_1954.JPG','pic5');" id = "pic5" src="back.jpg" width= "90" height= "90"> </div>
+        <img class="card" onclick="pressed('IMG_2022.JPG','pic6');" id = "pic6" src="back.jpg" width= "90" height= "90"> </div>
+        <img class="card" onclick="pressed('IMG_2012.JPG','pic7');" id = "pic7" src="back.jpg" width= "90" height= "90"> </div>
+        <img class="card" onclick="pressed('IMG_0191.JPG','pic8');" id = "pic8" src="back.jpg" width= "90" height= "90"> </div>
+        <img class="card" onclick="pressed('IMG_1779.JPG','pic9');" id = "pic9" src="back.jpg" width= "90" height= "90"> </div>
+        <img class="card" onclick="pressed('IMG_2022.JPG','pic10');" id = "pic10" src="back.jpg" width= "90" height= "90"> </div>
+        <img class="card" onclick="pressed('IMG_8540.JPG','pic11');" id = "pic11" src="back.jpg" width= "90" height= "90"> </div>
+        <img class="card" onclick="pressed('IMG_1954.JPG','pic12');" id = "pic12" src="back.jpg" width= "90" height= "90"> </div>
+        <img class="card" onclick="pressed('IMG_1107.JPG','pic13');" id = "pic13" src="back.jpg" width= "90" height= "90"> </div>
+        <img class="card" onclick="pressed('IMG_1779.JPG','pic14');" id = "pic14" src="back.jpg" width= "90" height= "90"> </div>
+        <img class="card" onclick="pressed('IMG_1107.JPG','pic15');" id = "pic15" src="back.jpg" width= "90" height= "90"> </div>
+        <img class="card" onclick="pressed('IMG_1502.JPG','pic16');" id = "pic16" src="back.jpg" width= "90" height= "90"> </div>
     </div>
     
 </body>
