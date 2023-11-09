@@ -10,37 +10,37 @@
     <style> 
     </style>
     <script>
-        let num = 0;
         let score = 0;
-        let pickable=true
-        let count = 0;
-        let justPicked1 = "";
-        let justPicked2 = "";
+        let picked = false;
+        let justPicked = "";
         function initialize(){
-            count = 0;
+            score();
         }
         function pressed(image,card){
-            if(pickable){
-                count++;
-                score++;
-                let pic = document.getElementById(card);
-                pic.src=`${image}`;
-                if (justPicked1 == ""){
-                        justPicked1 = "card";
-                    }else{
-                        justPicked2 = "card";
-                    }
-                if(count==2){
-                    count = 0;
-                    justPicked1="";
-                    justPicked2="";
-                    let x = document.getElementById(justPicked1);
-                    x.src = "back.jpg";
+            score++;
+            document.getElementById(card).src = image;
+            if(picked === false){
+                justPicked = card;
+                picked = true;
+            } else{
+                if(justPicked === card){
+                    justPicked = "";
+                    picked = false;
                 }else{
-                    
+                    setTimeout(()=>{
+                    let x = document.getElementById(justPicked);
+                    x.src = "back.jpg";
+                    let c = document.getElementById(card);
+                    c.src = "back.jpg";
+                    picked = false;
+                    },1000);
                 }
             }
-            
+            update();
+        }
+        function update(){
+            y = document.getElementById("score");
+            y.innerHTML = "Score:" + score;
         }
     </script>
 </head>
@@ -63,6 +63,6 @@
         <img class="card" onclick="pressed('IMG_1107.JPG','pic15');" id = "pic15" src="back.jpg" width= "90" height= "90"> </div>
         <img class="card" onclick="pressed('IMG_1502.JPG','pic16');" id = "pic16" src="back.jpg" width= "90" height= "90"> </div>
     </div>
-    
+    <h2 id="score">Score:0</h2>
 </body>
 </html>
