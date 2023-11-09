@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="base.css">
-    <link rel="stylesheet" href="style.css">
     <style> 
     </style>
     <script>
@@ -15,7 +14,7 @@
         let justPickedPic = "";
         let justPickedId = "";
         function initialize(){
-            score();
+            score = 0;
         }
         function pressed(image,card){
             x = "";
@@ -50,6 +49,9 @@
             y = document.getElementById("score");
             y.innerHTML = "Score:" + score;
         }
+        function redo(){
+            location.reload();
+        }
     </script>
 </head>
 <body onload="initialize();">
@@ -72,5 +74,6 @@
         <img class="card" onclick="pressed('IMG_1502.JPG','pic16');" id = "pic16" src="back.jpg" width= "90" height= "90"> </div>
     </div>
     <h2 id="score">Score:0</h2>
+    <button onclick = "redo();" id = "reset"><h2>Reset</h2></button>
 </body>
 </html>
